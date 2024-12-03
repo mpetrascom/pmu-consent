@@ -146,8 +146,10 @@ const ConsentForm: React.FC = () => {
     date: ''
   });
 
-  const [healthData, setHealthData] = useState<Record<string, any>>({});
-
+  interface HealthData {
+    [key: string]: boolean | string | undefined;
+  }
+  const [healthData, setHealthData] = useState<HealthData>({});
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
